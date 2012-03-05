@@ -59,11 +59,12 @@ PRODUCT_COPY_FILES += \
 # Packages
 PRODUCT_PACKAGES := \
     com.android.future.usb.accessory \
-    TvOut \
-    TvOutHack \
-    camera.exynos4 \
-    GalaxyS2Settings \
-    SamsungServiceMode
+    camera.exynos4 
+
+#    TvOut
+#    TvOutHack
+#    GalaxyS2Settings
+#    SamsungServiceMode
 
 # Camera
 PRODUCT_PACKAGES += \
