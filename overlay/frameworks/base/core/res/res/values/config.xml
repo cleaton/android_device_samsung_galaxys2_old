@@ -193,6 +193,10 @@
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
+    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not
+         specified -->
+    <string name="default_wallpaper_component">com.android.phasebeam/.PhaseBeamWallpaper</string>
+
 <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
         <item>0</item>
@@ -245,15 +249,5 @@
     
     <!-- Allow the menu hard key to be disabled in LockScreen on some devices -->
     <bool name="config_disableMenuKeyInLockScreen">true</bool>
-    
-    <!-- CM CHANGES START HERE -->
-
-    <!-- LUN file to be used by legacy USB manager.
-         The existence of this file will be used to determine in the
-         legacy USB manager should be started. -->
-    <string name="config_legacyUmsLunFile">/sys/class/android_usb/f_mass_storage/lun0/file</string>
-
-    <!-- Workaround for devices with broken keyboards -->	
-    <bool name="config_forceDisableHardwareKeyboard">true</bool>
 
 </resources>
