@@ -34,6 +34,12 @@ COMMON_GLOBAL_CFLAGS += -DEXYNOS4210_ENHANCEMENTS
 COMMON_GLOBAL_CFLAGS += -DSURFACEFLINGER_FORCE_SCREEN_RELEASE
 endif
 
+# galaxys2 uses an Exynos4 -- Cortex A9 (need wno-error for linaro toolchain)
+TARGET_GLOBAL_CFLAGS += $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8))
+
+#TARGET_GLOBAL_CFLAGS +=  -Wno-error=unused-but-set-variable
+#TARGET_GLOBAL_CPPFLAGS +=  -Wno-error=unused-but-set-variable
+
 TARGET_BOARD_PLATFORM := exynos4
 TARGET_BOOTLOADER_BOARD_NAME := smdk4210
 TARGET_BOARD_INFO_FILE := device/samsung/galaxys2/board-info.txt
