@@ -27,9 +27,18 @@ PRODUCT_COPY_FILES := \
 	device/samsung/galaxys2/init.smdk4210.rc:root/init.smdk4210.rc \
 	device/samsung/galaxys2/ueventd.smdk4210.rc:root/ueventd.smdk4210.rc
 
+PRODUCT_PROPERTY_OVERRIDES := \
+	ro.rom.version=koudaosp
+
 # Audio
 PRODUCT_COPY_FILES += \
 	device/samsung/galaxys2/configs/asound.conf:system/etc/asound.conf
+
+# Backup Tool
+PRODUCT_COPY_FILES += \
+	device/samsung/galaxys2/cmscripts/backuptool.sh:system/bin/backuptool.sh \
+	device/samsung/galaxys2/cmscripts/backuptool.functions:system/bin/backuptool.functions \
+	vdevice/samsung/galaxys2/cmscripts/50-cm.sh:system/addon.d/50-cm.sh
 
 # Vold
 PRODUCT_COPY_FILES += \
@@ -45,7 +54,7 @@ PRODUCT_COPY_FILES += \
 	device/samsung/galaxys2/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
 	device/samsung/galaxys2/configs/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
 
-PRODUCT_PROPERTY_OVERRIDES := \
+PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0 \
 	wifi.supplicant_scan_interval=15
 
