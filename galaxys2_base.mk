@@ -38,7 +38,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/samsung/galaxys2/cmscripts/backuptool.sh:system/bin/backuptool.sh \
 	device/samsung/galaxys2/cmscripts/backuptool.functions:system/bin/backuptool.functions \
-	vdevice/samsung/galaxys2/cmscripts/50-cm.sh:system/addon.d/50-cm.sh
+	device/samsung/galaxys2/cmscripts/50-cm.sh:system/addon.d/50-cm.sh
 
 # Vold
 PRODUCT_COPY_FILES += \
