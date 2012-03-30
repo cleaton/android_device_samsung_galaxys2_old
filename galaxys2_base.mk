@@ -72,7 +72,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES := \
     Camera \
     camera.exynos4 \
-    com.android.future.usb.accessory
+    com.android.future.usb.accessory \
+	GalaxyS2Settings \
+	SamsungServiceMode
 
 # HAL
 PRODUCT_PACKAGES += \
