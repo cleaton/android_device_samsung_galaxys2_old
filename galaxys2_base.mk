@@ -40,9 +40,12 @@ PRODUCT_COPY_FILES += \
 	device/samsung/galaxys2/cmscripts/backuptool.functions:system/bin/backuptool.functions \
 	device/samsung/galaxys2/cmscripts/50-cm.sh:system/addon.d/50-cm.sh
 
-# Vold
+# Vold and Storage
 PRODUCT_COPY_FILES += \
 	device/samsung/galaxys2/configs/vold.fstab:system/etc/vold.fstab \
+
+PRODUCT_PROPERTY_OVERRIDES := \
+    ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
 
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += \
@@ -67,24 +70,43 @@ PRODUCT_COPY_FILES += \
 
 # Packages
 PRODUCT_PACKAGES := \
-    com.android.future.usb.accessory \
-    camera.exynos4 
+    Camera \
+    camera.exynos4 \
+    com.android.future.usb.accessory
 
-#    TvOut
-#    TvOutHack
-#    GalaxyS2Settings
-#    SamsungServiceMode
-
-# Camera
+# HAL
 PRODUCT_PACKAGES += \
-	Camera
+    lights.exynos4 \
+    libhwconverter \
+    libswconverter \
+    libs5pjpeg \
+    libfimg
+
+# MFC API
+PRODUCT_PACKAGES += \
+    libsecmfcapi
+
+# OMX
+PRODUCT_PACKAGES += \
+    libstagefrighthw \
+    libcsc \
+    libsecbasecomponent \
+    libsecosal \
+    libSEC_OMX_Resourcemanager \
+    libSEC_OMX_Core \
+    libSEC_OMX_Vdec \
+    libOMX.SEC.AVC.Decoder \
+    libOMX.SEC.M4V.Decoder \
+    libOMX.SEC.WMV.Decoder \
+    libOMX.SEC.VP8.Decoder \
+    libSEC_OMX_Venc \
+    libOMX.SEC.AVC.Encoder \
+    libOMX.SEC.M4V.Encoder \
+    libSEC_OMX_Adec \
+    libOMX.SEC.MP3.Decoder
 
 PRODUCT_COPY_FILES += \
 	device/samsung/galaxys2/configs/media_profiles.xml:system/etc/media_profiles.xml
-
-# Sensors
-PRODUCT_PACKAGES += \
-	lights.exynos4
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -159,5 +181,4 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 
 # Include exynos4 platform specific parts
-#$(call inherit-product, hardware/samsung/exynos4/exynos4.mk)
-#$(call inherit-product, hardware/samsung/exynos4/Android.mk)
+$(call inherit-product, hardware/samsung/exynos4/Android.mk)
