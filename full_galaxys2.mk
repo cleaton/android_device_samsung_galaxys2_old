@@ -22,7 +22,9 @@
 #
 
 # Get the long list of APNs
-PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+PRODUCT_COPY_FILES := \
+		device/samsung/galaxys2/configs/apns-conf.xml:system/etc/apns-conf.xml \
+		device/samsung/galaxys2/configs/spn-conf.xml:system/etc/spn-conf.xml
 # Enable debugable even on non debug builds
 ADDITIONAL_DEFAULT_PROPERTIES += ro.debuggable=1
 
