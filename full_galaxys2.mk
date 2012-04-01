@@ -25,13 +25,9 @@
 PRODUCT_COPY_FILES := \
 		device/samsung/galaxys2/configs/apns-conf.xml:system/etc/apns-conf.xml \
 		device/samsung/galaxys2/configs/spn-conf.xml:system/etc/spn-conf.xml
-# Enable debugable even on non debug builds
-ADDITIONAL_DEFAULT_PROPERTIES += ro.debuggable=1
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-# This is where we'd set a backup provider if we had one
-#$(call inherit-product, device/sample/products/backup_overlay.mk)
 $(call inherit-product, device/samsung/galaxys2/galaxys2.mk)
 
 # Discard inherited values and use our own instead.

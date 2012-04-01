@@ -44,9 +44,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/samsung/galaxys2/configs/vold.fstab:system/etc/vold.fstab \
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
-
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += \
 	system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf
@@ -114,10 +111,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.ril_class=Smdk4210RIL \
 	mobiledata.interfaces=pdp0,wlan0,gprs,ppp0
-
-# su
-PRODUCT_PACKAGES += \
-	su
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
