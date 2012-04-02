@@ -173,6 +173,30 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp
 
+############################ 
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    keyguard.no_require_sim=true \
+    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
+    ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
+    ro.com.google.clientidbase=android-google \
+    ro.com.android.wifi-watchlist=GoogleGuest \
+    ro.setupwizard.enterprise_mode=1 \
+    ro.com.android.dateformat=MM-dd-yyyy \
+    ro.com.android.dataroaming=false
+
+# Bring in camera effects & videos
+$(call inherit-product, frameworks/base/data/videos/VideoPackage2.mk)
+PRODUCT_COPY_FILES +=  \
+    device/samsung/galaxys2/configs/media/LMprec_508.emd:system/media/LMprec_508.emd \
+    device/samsung/galaxys2/configs/media/PFFprec_600.emd:system/media/PFFprec_600.emd
+
+# Enable SIP+VoIP
+PRODUCT_COPY_FILES += \
+    frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
+
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 
 # Include exynos4 platform specific parts
