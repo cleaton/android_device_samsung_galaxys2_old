@@ -189,9 +189,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bring in camera effects & videos
 $(call inherit-product, frameworks/base/data/videos/VideoPackage2.mk)
-PRODUCT_COPY_FILES +=  \
-    device/samsung/galaxys2/configs/media/LMprec_508.emd:system/media/LMprec_508.emd \
-    device/samsung/galaxys2/configs/media/PFFprec_600.emd:system/media/PFFprec_600.emd
 
 # Enable SIP+VoIP
 PRODUCT_COPY_FILES += \
