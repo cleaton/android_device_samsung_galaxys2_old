@@ -166,6 +166,9 @@ adb pull /system/media/LMprec_508.emd ../../../vendor/$MANUFACTURER/$COMMON/prop
 adb pull /system/media/PFFprec_600.emd ../../../vendor/$MANUFACTURER/$COMMON/proprietary/PFFprec_600.emd
 
 
+# MFC Firmware
+adb pull /system/vendor/firmware/mfc_fw.bin ../../../vendor/$MANUFACTURER/$COMMON/proprietary/mfc_fw.bin
+
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__COMMON__/$COMMON/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/$DEVICE-vendor-blobs.mk
 # Copyright (C) 2012 The CyanogenMod Project
 #
@@ -365,6 +368,9 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/LMprec_508.emd:system/media/LMprec_508.emd \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/PFFprec_600.emd:system/media/PFFprec_600.emd
 
+# MFC Firmware
+PRODUCT_COPY_FILES += \\
+    vendor/__MANUFACTURER__/__COMMON__/proprietary/mfc_fw.bin:system/vendor/firmware/mfc_fw.bin
 EOF
 
 
