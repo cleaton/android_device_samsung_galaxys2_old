@@ -101,7 +101,7 @@ BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
-WIFI_DRIVER_MODULE_PATH          := "/lib/modules/dhd.ko"
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/dhd.ko"
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcm4330_sta.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcm4330_apsta.bin"
@@ -118,6 +118,7 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_VOLD_MAX_PARTITIONS := 12
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/s3c-usbgadget/gadget/lun%d/file"
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/galaxys2/recovery/recovery_keys.c
@@ -129,6 +130,10 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/galaxys2/overlay/include
 
+# Charging mode
+BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
+BOARD_BATTERY_DEVICE_NAME := "battery"
+BOARD_CHARGER_RES := device/samsung/galaxys2/res/charger
 
 # assert
 TARGET_OTA_ASSERT_DEVICE := galaxys2,GT-I9100,GT-I9100M,GT-I9100P,GT-I9100T

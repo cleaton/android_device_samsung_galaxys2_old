@@ -56,7 +56,7 @@ RAMDISK_MODULES := $(addprefix device/samsung/galaxys2/modules/,dhd.ko \
 	scsi_wait_scan.ko Si4709_driver.ko)
 PRODUCT_COPY_FILES += $(foreach module,\
 	$(RAMDISK_MODULES),\
-	$(module):root/lib/modules/$(notdir $(module)))
+	$(module):system/lib/modules/$(notdir $(module)))
 
 # Other kernel modules not in ramdisk
 PRODUCT_COPY_FILES += $(foreach module,\

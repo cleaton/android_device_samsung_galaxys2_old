@@ -4,30 +4,30 @@ on early-init
 	export EXTERNAL_STORAGE /mnt/sdcard
     export SECONDARY_STORAGE /mnt/emmc
     mkdir /mnt 0775 system system
-    mkdir /mnt/sdcard 0775 system system
     mkdir /mnt/emmc 0775 system system
+    mkdir /mnt/sdcard 0775 system system
     mkdir /mnt/usbdisk 0775 system system
     mkdir /efs 0771 radio system
-	mkdir /preload 0771 system system
-	mkdir /mnt/.lfs 0755 root root
+    mkdir /preload 0771 system system
+    mkdir /mnt/.lfs 0755 root root
 
-	# for backwards compatibility
-	symlink /mnt/sdcard /sdcard
-	symlink /mnt/emmc /emmc
+    # for backwards compatibility
+    symlink /mnt/emmc /emmc
+    symlink /mnt/sdcard /sdcard
 
 # Disable CFQ slice idle delay
     write /sys/block/mmcblk0/queue/iosched/slice_idle 0
 
 # FIXME: permissions for tvout
-	chmod 0777 /dev/graphics/fb0
-	chmod 0777 /dev/graphics/fb10
-	chmod 0777 /dev/graphics/fb11	
+    chmod 0777 /dev/graphics/fb0
+    chmod 0777 /dev/graphics/fb10
+    chmod 0777 /dev/graphics/fb11
     chown media graphics /sys/class/switch/hdmi
     chmod 0777 /sys/class/switch/hdmi
 
 # FIXME: permission for HDMI audio path
     chown media audio /sys/class/hdmi_audio/hdmi_audio/hdmi_audio_set_ext
-	chmod 0777 /sys/class/hdmi_audio/hdmi_audio/hdmi_audio_set_ext
+    chmod 0777 /sys/class/hdmi_audio/hdmi_audio/hdmi_audio_set_ext
 
 on fs
 # mount ext4 partitions
@@ -50,7 +50,7 @@ on fs
 
 on post-fs-data
 # insmod kernel modules
-    insmod /lib/modules/Si4709_driver.ko
+    insmod /system/lib/modules/Si4709_driver.ko
     
 # mount param.lfs
     mount j4fs /dev/block/mmcblk0p4 /mnt/.lfs
@@ -352,8 +352,8 @@ service iprenew_p2p /system/bin/dhcpcd -n
 
 # for bluetooth
 service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --no2bytes --tosleep 50000 \
-	--baudrate 3000000 --use_baudrate_for_download --patchram /system/bin/bcm4330B1.hcd \
-	--scopcm=0,0,0,0,0,0,0,3,3,0  /dev/ttySAC0
+    --baudrate 3000000 --use_baudrate_for_download --patchram /system/bin/bcm4330B1.hcd \
+    --scopcm=0,0,0,0,0,0,0,3,3,0  /dev/ttySAC0
     class main
     user bluetooth
     group bluetooth net_bt_admin
@@ -372,10 +372,10 @@ service TvoutService_C /system/bin/bintvoutservice
      class main
      user system
      group graphics 
-    
+
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/bugmailer.sh -v
     class main
-	disabled
-	oneshot
-	keycodes 114 115 116
+    disabled
+    oneshot
+    keycodes 114 115 116
